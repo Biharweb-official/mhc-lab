@@ -1,92 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><!-- PLAYABLE_TOUCH_PATCH_V1 --><script>
+(function() {
+  if (window.__playableTouchPatchInstalled) return;
+  window.__playableTouchPatchInstalled = true;
+  var origAdd = EventTarget.prototype.addEventListener;
+  var blockedTypes = { touchstart: 1, touchmove: 1, wheel: 1 };
+  EventTarget.prototype.addEventListener = function(type, listener, options) {
+    if (blockedTypes[type]) {
+      if (options === undefined || options === null) {
+        options = { passive: true };
+      } else if (typeof options === 'boolean') {
+        options = { capture: options, passive: true };
+      } else {
+        options = Object.assign({}, options, { passive: true });
+      }
+    }
+    return origAdd.call(this, type, listener, options);
+  };
+})();
+</script><script>window.Intl=window.Intl||{};Intl.t=function(s){return(Intl._locale&&Intl._locale[s])||s;};</script>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>MHC Pathology Lab - FINAL FIXED NO CUT</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MHC Pathology Lab Madhepura | Dr. Prashant Kumar - MBBS MD PGI Chandigarh | Best Lab</title>
+<meta name="description" content="MHC Pathology Lab Madhepura - Dr. Prashant Kumar MBBS MD PGI Chandigarh. Ex. Senior Resident RML & ABV Medical College New Delhi. 2000+ Tests, Free Home Collection, 6 Hours Report. Karpuri Chowk, Madhepura Bihar.">
+<meta name="keywords" content="MHC Pathology Lab Madhepura, Best lab Madhepura, Dr Prashant Kumar, Blood test Madhepura, Thyroid test, HIV test">
+<meta name="author" content="MHC Pathology Lab">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://biharweb-official.github.io/mhc-lab/">
+<!-- Open Graph -->
+<meta property="og:title" content="MHC Pathology Lab Madhepura - Accurate Reports Better Health">
+<meta property="og:description" content="Dr. Prashant Kumar MBBS MD PGI Chandigarh. 50K+ Patients (Demo), 4.9★ Rating (Sample), Free Home Collection.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://biharweb-official.github.io/mhc-lab/">
+<meta property="og:image" content="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=1200&q=80">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"MedicalBusiness",
+  "name":"MHC Pathology Lab",
+  "image":"https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800",
+  "address":{"@type":"PostalAddress","streetAddress":"Karpuri Chowk Near Style Bazar","addressLocality":"Madhepura","addressRegion":"Bihar","postalCode":"852113","addressCountry":"IN"},
+  "telephone":"+91-7463042110",
+  "founder":{"@type":"Person","name":"Dr. Prashant Kumar","jobTitle":"MBBS MD Pathology PGI Chandigarh"},
+  "openingHours":"Mo-Su 06:00-21:00",
+  "priceRange":"₹199-₹1799"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-html{scroll-behavior:smooth;scroll-padding-top:76px}
-body{background:#06101e;color:#fff;line-height:1.6;overflow-x:hidden;width:100%}
-section{padding:50px 4%}
-.container{max-width:1280px;margin:auto;width:100%}
-.badge{display:inline-flex;padding:5px 12px;background:rgba(47,199,255,.12);border:1px solid rgba(47,199,255,.25);color:#2fc7ff;border-radius:30px;font-size:10px;font-weight:700}
-.btn{padding:11px 18px;border-radius:40px;font-weight:600;display:inline-flex;gap:7px;align-items:center;justify-content:center;transition:.25s;border:none;cursor:pointer;font-size:12.5px;white-space:nowrap;max-width:100%}
-.btn:active{transform:scale(.96)}
-.btn-p{background:#2fc7ff;color:#06101e}.btn-o{border:1.5px solid #2fc7ff;color:#fff;background:rgba(255,255,255,.04)}
-header{position:fixed;top:0;width:100%;z-index:1000;background:rgba(6,16,30,.94);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06)}
-nav{display:flex;justify-content:space-between;align-items:center;padding:10px 4%}
-.logo{font-size:22px;font-weight:800;color:#2fc7ff}.logo span{color:#ffd43b}
-.menu{display:flex;gap:16px;align-items:center}.menu a{font-size:12px;opacity:.85}.menu a.active{color:#2fc7ff}
-#ham{display:none;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#fff;width:38px;height:38px;border-radius:10px;place-items:center;cursor:pointer}
-.hero-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:16px;width:100%;max-width:100%;overflow:hidden}
-.info-row{display:grid;grid-template-columns:90px 1fr;gap:8px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:12px}
-.info-label{color:#8aa0b8;white-space:nowrap}.info-value{color:#fff;font-weight:600;word-break:break-word;white-space:normal}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:14px;width:100%;overflow:hidden}
-.report-box{width:100%;display:grid;grid-template-columns:1.15fr.85fr;gap:16px;padding:18px;border-radius:18px;background:linear-gradient(105deg,#0e213d,#0a1930);border:1px solid rgba(47,199,255,.18);overflow:hidden}
-.report-input{display:flex;gap:6px;background:#fff;padding:5px;border-radius:12px;width:100%}.report-input input{flex:1;min-width:0;border:none;outline:none;padding:10px;border-radius:8px;color:#000;font-size:13px}
-.booking{display:grid;grid-template-columns:.9fr 1.1fr;border-radius:18px;overflow:hidden;background:#0e213d;border:1px solid rgba(255,255,255,.08);width:100%}
-.form{padding:16px;display:grid;gap:8px;background:rgba(255,255,255,.03)}.form input,.form select{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,.14);background:#06101e;color:#fff;width:100%;font-size:12.5px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(10px);z-index:2000;display:none;align-items:center;justify-content:center;padding:10px}.modal.open{display:flex}
-.modal-card{width:min(760px,96%);max-height:92vh;overflow:auto;background:#fff;color:#000;border-radius:16px}
-.modal-header{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:#06101e;color:#fff}
-.float{position:fixed;right:10px;bottom:10px;z-index:999;display:flex;flex-direction:column;gap:8px}
-.float a{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-size:16px;color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.35)}
-.wa{background:#25D366}.cl{background:#2fc7ff;color:#06101e!important}
-#toast{position:fixed;left:50%;bottom:16px;transform:translateX(-50%) translateY(80px);background:#fff;color:#06101e;padding:8px 16px;border-radius:100px;font-weight:700;font-size:11px;opacity:0;transition:.35s;z-index:3000}#toast.show{transform:translateX(-50%) translateY(0);opacity:1}
-@media(max-width:900px){#ham{display:grid}.menu{position:fixed;top:60px;left:50%;transform:translateX(-50%) translateY(-8px);width:94%;max-width:360px;flex-direction:column;background:rgba(6,16,30,.98);padding:16px;border-radius:18px;border:1px solid rgba(255,255,255,.12);opacity:0;pointer-events:none;transition:.28s}.menu.open{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}.grid3,.report-box,.booking,.grid2{grid-template-columns:1fr}section{padding:36px 4%}}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header><nav><div class="logo">MHC<span> LAB</span></div><div class="menu" id="menu"><a href="#home" class="active">Home</a><a href="#tests">Tests</a><a href="#reports">Reports</a><a href="#booking">Booking</a><a href="#contact">Contact</a><a href="tel:+917463042110" class="btn btn-p" style="padding:6px 12px;font-size:11px">Call Now</a></div><button id="ham"><i class="fa-solid fa-bars-staggered"></i></button></nav></header>
-<section style="padding-top:90px;background:linear-gradient(rgba(6,16,30,.88),rgba(6,16,30,.96)),url('https://images.unsplash.com/photo-1579154204601-01588f351e67?w=1600&q=80');background-size:cover"><div class="container" style="display:grid;grid-template-columns:1.2fr.8fr;gap:20px;align-items:start">
-<div><div class="badge">DR. PRASHANT KUMAR | MBBS MD PGI CHANDIGARH</div><h1 style="font-size:clamp(28px,4.5vw,46px);line-height:1.05;font-weight:800;margin-top:8px">Accurate Reports.<br><span style="color:#2fc7ff">Better Health.</span></h1><p style="color:#aab8c6;margin:10px 0 14px;font-size:13px">Ex. Senior Resident RML & ABV Medical College New Delhi. Free Home Collection, 6 Hours Report.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><a href="#booking" class="btn btn-p">Book Free Collection</a><a href="#reports" class="btn btn-o">View / Download Report</a></div></div>
-<div class="hero-card">
-<h3 style="font-size:14px;color:#2fc7ff;margin-bottom:10px"><i class="fa-solid fa-flask-vial"></i> MHC Pathology Lab</h3>
+<!-- Header -->
+<header id="header">
+<div class="container">
+<nav aria-label="Main navigation">
+<div class="logo" aria-label="MHC Pathology Lab"><i class="fa-solid fa-flask-vial" aria-hidden="true"></i> MHC<span> LAB</span></div>
+<div class="menu" id="menu" role="navigation">
+<a href="#home" class="active">Home</a>
+<a href="#tests">Tests</a>
+<a href="#reports">Reports</a>
+<a href="#about">About</a>
+<a href="#booking">Booking</a>
+<a href="#contact">Contact</a>
+<a href="tel:+917463042110" class="btn btn-primary" style="padding:8px 16px;font-size:12px" aria-label="Call MHC Lab Now"><i class="fa-solid fa-phone" aria-hidden="true"></i> Call Now</a>
+</div>
+<button id="ham" aria-label="Toggle menu" aria-expanded="false"><i class="fa-solid fa-bars-staggered"></i></button>
+</nav>
+</div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="home">
+<div class="container hero-grid">
+<div class="reveal">
+<div class="badge"><i class="fa-solid fa-shield-check" aria-hidden="true"></i> NABL Inspired • MD Pathologist Verified</div>
+<h1>Accurate<br>Reports.<br><span class="accent">Better Health.</span></h1>
+<p>Dr. Prashant Kumar — MBBS, MD (PGI Chandigarh). Ex. Senior Resident RML & ABV Medical College New Delhi. Trusted by families in Madhepura. Free Home Collection, 6 Hours Report.</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap">
+<a href="#booking" class="btn btn-primary"><i class="fa-solid fa-vial" aria-hidden="true"></i> Book Free Collection</a>
+<a href="#reports" class="btn btn-outline"><i class="fa-regular fa-eye" aria-hidden="true"></i> View / Download Report</a>
+</div>
+<div class="stats-row" aria-label="Lab statistics">
+<div class="stat"><b class="counter" data-target="50000">0</b><span>Patients Tested (Demo)</span></div>
+<div class="stat"><b style="color:var(--accent)">4.9★</b><span>Google Rating (Sample)</span></div>
+<div class="stat"><b class="counter" data-target="6">0</b><span>Hrs Fast Report</span></div>
+<div class="stat"><b class="counter" data-target="2000">0</b><span>Tests Available (Demo)</span></div>
+</div>
+</div>
+
+<div class="hero-card reveal reveal-delay-1">
+<h3><i class="fa-solid fa-hospital" aria-hidden="true"></i> MHC Pathology Lab — Madhepura</h3>
 <div class="info-row"><span class="info-label">Doctor</span><span class="info-value">Dr. Prashant Kumar</span></div>
 <div class="info-row"><span class="info-label">Qualification</span><span class="info-value">MBBS, MD (PGI Chandigarh)</span></div>
-<div class="info-row"><span class="info-label">Ex. Experience</span><span class="info-value">RML Hospital New Delhi</span></div>
+<div class="info-row"><span class="info-label">Experience</span><span class="info-value">Ex. RML Hospital New Delhi</span></div>
 <div class="info-row"><span class="info-label">Address</span><span class="info-value">Karpuri Chowk, Near Style Bazar, Madhepura</span></div>
-<div class="info-row"><span class="info-label">Contact</span><span class="info-value">+91-7463042110</span></div>
-<div class="info-row" style="border:none"><span class="info-label">2nd Number</span><span class="info-value">+91-9631125071</span></div>
-<div style="margin-top:12px;display:grid;gap:6px">
-<a href="tel:+917463042110" class="btn btn-p" style="width:100%;font-size:12px"><i class="fa-solid fa-phone"></i> +91-7463042110 Call Now</a>
-<a href="#" class="btn btn-o" style="width:100%;font-size:11px" onclick="return openWA(event)"><i class="fa-brands fa-whatsapp" style="color:#25D366"></i> WhatsApp Direct</a>
+<div class="info-row"><span class="info-label">Contact</span><span class="info-value"><a href="tel:+917463042110">+91-7463042110</a></span></div>
+<div class="info-row" style="border:none"><span class="info-label">2nd Number</span><span class="info-value"><a href="tel:+919631125071">+91-9631125071</a></span></div>
+<div style="margin-top:14px;display:grid;gap:8px">
+<a href="tel:+917463042110" class="btn btn-primary" style="width:100%;font-size:12.5px" aria-label="Call MHC Lab"><i class="fa-solid fa-phone" aria-hidden="true"></i> +91-7463042110 Call Now</a>
+<a href="#" class="btn btn-ghost" style="width:100%;font-size:11.5px" onclick="return openWA(event)" aria-label="WhatsApp Direct"><i class="fa-brands fa-whatsapp" style="color:#25D366" aria-hidden="true"></i> WhatsApp Direct — No Save Needed</a>
+</div>
+<div class="location-box">
+<i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+<span>Karpuri Chowk, (Near Style Bazar) Madhepura-852113 (Bihar) — Free Home Collection Available</span>
 </div>
 </div>
-</div></section>
-<section id="reports"><div class="container"><div class="report-box"><div style="min-width:0"><div class="badge">REPORT ACCESS FIXED</div><h2 style="font-size:24px;margin-top:6px;font-weight:800">View & Download Reports</h2><div class="report-input" style="margin-top:10px"><input id="repInput" type="tel" placeholder="Enter Mobile / Reg No. Ex: 7463042110"><button class="btn btn-p" onclick="viewReport()" style="flex-shrink:0">View</button></div><div style="display:flex;gap:6px;margin-top:8px"><button class="btn btn-o" style="flex:1;font-size:11px;padding:9px" onclick="viewReport()">View Report</button><button class="btn btn-p" style="flex:1;font-size:11px;padding:9px" onclick="downloadReport()">Download PDF</button></div></div><div style="background:#06101e;border-radius:14px;padding:12px;border:1px solid rgba(255,255,255,.08)"><div style="display:flex;justify-content:space-between"><b style="font-size:12px">Latest Report</b><span style="background:#22c55e;color:#fff;padding:2px 6px;border-radius:20px;font-size:8px">READY</span></div><div style="background:#fff;color:#000;border-radius:10px;padding:10px;margin-top:8px;display:flex;gap:8px"><div style="width:30px;height:30px;background:#2fc7ff;border-radius:6px;display:grid;place-items:center;color:#000"><i class="fa-solid fa-file-medical" style="font-size:12px"></i></div><div style="min-width:0"><b style="font-size:11px;word-break:break-all" id="previewName">MHC-202607250139.pdf</b><br><small style="font-size:9px;color:#666">Verified by Dr. Prashant Kumar</small></div></div><div style="display:flex;gap:6px;margin-top:8px"><button class="btn btn-o" style="flex:1;color:#000;background:#fff;font-size:11px;padding:8px" onclick="viewReport()">View</button><button class="btn btn-p" style="flex:1;font-size:11px;padding:8px" onclick="downloadReport()">Download</button></div></div></div></div></section>
-<section id="tests" style="background:#0a1930"><div class="container"><div class="badge">15+ TESTS</div><h2 style="font-size:clamp(22px,3.2vw,32px);font-weight:800;margin-top:6px">Har Test Ek Hi Jagah</h2><div class="grid3" style="margin-top:12px">
-<div class="card"><h4>CBC - ₹199</h4><p style="color:#7f8fa3;font-size:11px">2 Hrs Report</p><button class="btn btn-p" style="width:100%;margin-top:8px;font-size:11px;padding:7px" onclick="bookTest('CBC ₹199')">Book Now</button></div>
-<div class="card"><h4>Thyroid T3 T4 TSH - ₹399</h4><p style="color:#7f8fa3;font-size:11px">Same day</p><button class="btn btn-p" style="width:100%;margin-top:8px;font-size:11px;padding:7px" onclick="bookTest('Thyroid ₹399')">Book Now</button></div>
-<div class="card"><h4>HIV I & II - ₹499</h4><p style="color:#7f8fa3;font-size:11px">RETROQUIC Rapid</p><button class="btn btn-p" style="width:100%;margin-top:8px;font-size:11px;padding:7px" onclick="bookTest('HIV I & II ₹499')">Book Now</button></div>
-<div class="card"><h4>Basic Wellness - ₹799</h4><p style="color:#7f8fa3;font-size:11px">60 Tests Bestseller</p><button class="btn btn-p" style="width:100%;margin-top:8px;font-size:11px;padding:7px" onclick="bookTest('Basic Wellness ₹799')">Book Now</button></div>
-<div class="card"><h4>Advance Full Body - ₹1499</h4><p style="color:#7f8fa3;font-size:11px">85 Tests Trending</p><button class="btn btn-p" style="width:100%;margin-top:8px;font-size:11px;padding:7px" onclick="bookTest('Advance Full Body ₹1499')">Book Now</button></div>
-<div class="card"><h4>Women Wellness - ₹1799</h4><p style="color:#7f8fa3;font-size:11px">72 Tests</p><button class="btn btn-o" style="width:100%;margin-top:8px;font-size:11px;padding:7px" onclick="bookTest('Women Wellness ₹1799')">Book Now</button></div>
-</div></div></section>
-<section id="booking"><div class="container"><div class="booking"><div style="padding:16px"><h2 style="font-size:22px">Book Free Home Collection</h2><div style="background:#143d62;border-radius:10px;padding:8px;font-size:11px;margin-top:8px">Karpuri Chowk, Near Style Bazar, Madhepura-852113<br>+91-7463042110 / 9631125071</div></div><form class="form" onsubmit="bookNow(event)"><div class="grid2"><input id="n" required placeholder="Naam *"><input id="p" type="tel" required pattern="[0-9]{10}" placeholder="Mobile *"></div><select id="t" required><option value="">Select Test *</option><option>CBC ₹199</option><option>Thyroid ₹399</option><option>HIV I & II ₹499</option><option>Basic Wellness ₹799</option><option>Advance Full Body ₹1499</option></select><input id="ad" required placeholder="Address *"><input id="dt" type="datetime-local" required><button type="submit" class="btn btn-p" style="width:100%"><i class="fa-brands fa-whatsapp"></i> Confirm - Direct WhatsApp</button></form></div></div></section>
-<footer style="padding:18px 4%;text-align:center;color:#5f7088;border-top:1px solid rgba(255,255,255,.06);font-size:10px">© 2026 MHC Pathology Lab, Madhepura | Dr. Prashant Kumar</footer>
-<div class="float"><a href="https://wa.me/917463042110?text=Hi%20MHC%20Lab" target="_blank" class="wa" onclick="return openWA(event)"><i class="fa-brands fa-whatsapp"></i></a><a href="tel:+917463042110" class="cl"><i class="fa-solid fa-phone"></i></a></div>
-<div class="modal" id="reportModal"><div class="modal-card"><div class="modal-header"><b>MHC Pathology Lab</b><button onclick="closeModal()" style="background:rgba(255,255,255,.15);border:none;color:#fff;width:28px;height:28px;border-radius:50%">X</button></div><div id="reportContent" style="padding:16px;font-size:12px"></div><div style="padding:10px;display:flex;gap:6px;justify-content:end;border-top:1px solid #eee;background:#fafafa"><button class="btn btn-o" style="color:#000;border-color:#ddd;font-size:11px" onclick="closeModal()">Close</button><button class="btn btn-p" style="font-size:11px" onclick="downloadReport()">Download</button></div></div></div>
-<div id="toast"></div>
-<script>
-const ham=document.getElementById('ham'),menu=document.getElementById('menu');
-ham.onclick=()=>{menu.classList.toggle('open'); ham.innerHTML=menu.classList.contains('open')?'<i class="fa-solid fa-xmark"></i>':'<i class="fa-solid fa-bars-staggered"></i>'};
-document.querySelectorAll('.menu a').forEach(a=>{a.addEventListener('click',()=>{menu.classList.remove('open');ham.innerHTML='<i class="fa-solid fa-bars-staggered"></i>'})});
-function toast(m){let t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000)}
-function openWA(e){if(e) e.preventDefault();let url='https://wa.me/917463042110?text='+encodeURIComponent('Hi MHC Lab Madhepura, Mujhe Test Book Karna Hai. ');let w=window.open(url,'_blank');if(!w) window.location.href=url;toast('WhatsApp Direct Opening...');return false;}
-function bookTest(name){document.getElementById('t').value=name;document.getElementById('booking').scrollIntoView({behavior:'smooth'});toast(name+' selected')}
-function getReportData(id){return `<div style="background:#fffbe6;padding:8px;border-radius:6px;display:flex;justify-content:space-between;border:1px solid #ffe58f"><div><b>Dr. Prashant Kumar</b><br><small style="font-size:10px">MBBS MD PGI</small></div><div><b style="color:#0e6efd">MHC LAB</b></div></div><h3 style="text-align:center;margin:10px 0;color:#4b3f9e;font-size:14px">MHC PATHOLOGY LAB</h3><div style="background:#e8f6ff;text-align:center;padding:4px;font-weight:700;font-size:11px">HIV I & II - RETROQUIC</div><table style="width:100%;font-size:11px;border-collapse:collapse;margin-top:6px"><tr style="border-bottom:1px solid #ddd"><th style="text-align:left">Test</th><th>Value</th><th>Ref</th></tr><tr><td>HIV I</td><td>Non-Reactive</td><td>Non-Reactive</td></tr><tr><td>HIV II</td><td>Non-Reactive</td><td>Non-Reactive</td></tr></table><div style="text-align:center;margin:10px 0;font-size:11px;font-weight:700">****End Of Report****</div>`;}
-function viewReport(){let v=document.getElementById('repInput').value.trim();if(!v){toast('Mobile / Reg No. daalo');return}document.getElementById('previewName').textContent='MHC-'+v+'.pdf';document.getElementById('reportContent').innerHTML=getReportData(v);document.getElementById('reportModal').classList.add('open')}
-function closeModal(){document.getElementById('reportModal').classList.remove('open')}
-function downloadReport(){let v=document.getElementById('repInput').value.trim()||'202607250139';let html='<html><body>'+(document.getElementById('reportContent').innerHTML||getReportData(v))+'</body></html>';let b=new Blob([html],{type:'text/html'});let u=URL.createObjectURL(b);let a=document.createElement('a');a.href=u;a.download='MHC-Report-'+v+'.html';a.click();URL.revokeObjectURL(u);toast('Downloaded')}
-function bookNow(e){e.preventDefault();let phone=document.getElementById('p').value.trim();if(!/^[0-9]{10}$/.test(phone)){toast('10 digit mobile sahi daalo');return}let msg=encodeURIComponent('MHC Lab Booking%0AName: '+document.getElementById('n').value+'%0APhone: '+phone+'%0ATest: '+document.getElementById('t').value+'%0AAddress: '+document.getElementById('ad').value);setTimeout(()=>{let url='https://wa.me/917463042110?text='+msg;let w=window.open(url,'_blank');if(!w) window.location.href=url},400);toast('Booking Confirmed!');e.target.reset()}
-let now=new Date();now.setMinutes(now.getMinutes()-now.getTimezoneOffset());document.getElementById('dt').min=now.toISOString().slice(0,16);
-document.getElementById('reportModal').addEventListener('click',(e)=>{if(e.target.id==='reportModal') closeModal()});
-</script>
-</body>
-</html>
+</div>
+</section>
+
+<!-- Reports -->
+<section id="reports" style="padding-top:24px">
+<div class="container">
+<div class="report-wrap reveal">
+<div style="min-width:0;position:relative;z-index:1">
+<div class="badge"><i class="fa-solid fa-file-shield" aria-hidden="true"></i> Instant Report Access — Fixed</div>
+<h2 class="title" style="font-size:26px;margin-top:10px">View & Download<br>Your Reports</h2>
+<p style="color:var(--muted);font-size:12.5px;margin:8px 0 16px;line-height:1.5">Enter Mobile number or Registration No. — Report turant View aur Download karo. SSL Secured, Doctor Verified, QR Verified. No cut, 100% working.</p>
+<div class="report-input" role="search" aria-label="Report search">
+<label for="repInput" class="sr-only">Enter Mobile or Registration Number</label>
+<input id="repInput" type="tel" inputmode="numeric" placeholder="Enter Mobile / Reg No. Ex: 7463042110" aria-label="Mobile or Reg No">
+<button class="btn btn-primary" onclick="viewReport()" style="flex-shrink:0;padding:11px 18px" aria-label="View report"><i class="fa-regular fa-eye" aria-hidden="true"></i> View</button>
+</div>
+<div style="display:flex;gap:8px;margin-top:10px">
+<button class="btn btn-outline" style="flex:1;font-size:12px;padding:11px" onclick="viewReport()" aria-label="View report"><i class="fa-regular fa-eye" aria-hidden="true"></i> View Report</button>
+<button class="btn btn-primary" style="flex:1;font-size:12px;padding:11px" onclick="downloadReport()" aria-label="Download report"><i class="fa-solid fa-download" aria-hidden="true"></i> Download PDF</button>
+</div>
+<div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;font-size:10px;color:var(--muted2)"><span><i class="fa-solid fa-lock" aria-hidden="true"></i> SSL Secured</span><span><i class="fa-solid fa-shield" aria-hidden="true"></i> Doctor Verified</span><span><i class="fa-solid fa-qrcode" aria-hidden="true"></i> QR Verified</span><span><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> PDF</span></div>
+</div>
+<div class="latest reveal-delay-1" style="position:relative;z-index:1">
+<div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:13px">Latest Report</b><span style="background:#22c55e;color:#fff;padding:3px 8px;border-radius:20px;font-size:9px;font-weight:700">READY TO VIEW</span></div>
+<div class="latest-file"><div style="width:36px;height:36px;background:var(--grad);border-radius:10px;display:grid;place-items:center;color:#06101e;flex-shrink:0" aria-hidden="true"><i class="fa-solid fa-file-medical"></i></div><div style="min-width:0;flex:1"><b id="previewName" style="font-size:12px;word-break:break-all">MHC-202607250139.pdf</b><br><small style="color:#666;font-size:10px">Verified by Dr. Prashant Kumar • HIV I & II (Demo)</small></div></div>
+<div style="height:6px;background:#e9eef5;border-radius:10px;margin-top:12px;overflow:hidden"><div style="width:88%;height:100%;background:var(--grad);border-radius:10px"></div></div>
+<div style="display:flex;gap:8px;margin-top:12px"><button class="btn btn-ghost" style="flex:1;color:#000;background:#fff;font-size:12px" onclick="viewReport()">View</button><button class="btn btn-primary" style="flex:1;font-size:12px" onclick="downloadReport()">Download</button></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Tests -->
+<section id="tests" style="background:linear-gradient(180deg,var(--bg2),var(--bg))">
+<div class="container">
+<div class="section-head">
+<div class="reveal"><div class="badge">2000+ Tests Available (Demo Count)</div><h2 class="title" style="margin-top:8px">Har Test Ek Hi Jagah — <span>Search & Book</span></h2><p class="sub">CBC se leke Full Body Checkup tak — sabse kam daam me, sabse tez report. Demo prices for client presentation.</p></div>
+<a href="#booking" class="btn btn-outline reveal">View All Packages <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+</div>
+
+<div class="search-box reveal"><i class="fa-solid fa-magnifying-glass" style="color:var(--muted);margin:12px 0 0 10px" aria-hidden="true"></i><input id="searchInput" type="text" placeholder="Search test... Eg: Thyroid, CBC, HIV, Diabetes" oninput="filterTests()" aria-label="Search tests"><button class="btn btn-primary" style="padding:10px 18px;font-size:12px;flex-shrink:0" onclick="filterTests()" aria-label="Search">Search</button></div>
+
+<div class="filter-row reveal" id="filterRow" role="tablist" aria-label="Test categories">
+<button class="chip active" role="tab" aria-selected="true" onclick="filterCat('all',this)">All Tests</button>
+<button class="chip" role="tab" onclick="filterCat('blood',this)">Blood</button>
+<button class="chip" role="tab" onclick="filterCat('thyroid',this)">Thyroid</button>
+<button class="chip" role="tab" onclick="filterCat('diabetes',this)">Diabetes</button>
+<button class="chip" role="tab" onclick="filterCat('fever',this)">Fever</button>
+<button class="chip" role="tab" onclick="filterCat('fullbody',this)">Full Body</button>
+</div>
+
+<div class="grid3" id="testGrid" style="margin-top:16px">
+<div class="card reveal" data-cat="blood" data-name="cbc complete blood count hemoglobin"><span class="price">₹199</span><div class="card-icon"><i class="fa-solid fa-droplet"></i></div><h4>CBC - Complete Blood Count</h4><p>Hemoglobin, RBC, WBC, Platelets • 2 Hrs Report • No Fasting Required (Demo)</p><button class="btn btn-outline" style="width:100%;margin-top:12px;font-size:11.5px;padding:9px" onclick="bookTest('CBC ₹199')">Book Now — ₹199</button></div>
+<div class="card reveal" data-cat="thyroid" data-name="thyroid t3 t4 tsh"><span class="price">₹399</span><div class="card-icon"><i class="fa-solid fa-vial"></i></div><h4>Thyroid Profile T3 T4 TSH</h4><p>Thyroid disorder screening • Fasting not required • Same day report (Demo)</p><button class="btn btn-outline" style="width:100%;margin-top:12px;font-size:11.5px;padding:9px" onclick="bookTest('Thyroid ₹399')">Book Now — ₹399</button></div>
+<div class="card reveal" data-cat="blood fever" data-name="hiv i ii retroquic"><span class="price hot">₹499</span><div class="card-icon" style="background:rgba(255,107,107,.12);border-color:rgba(255,107,107,.2);color:#ff6b6b"><i class="fa-solid fa-shield-virus"></i></div><h4>HIV I & II - RETROQUIC Rapid</h4><p>HIV I Non-Reactive, HIV II Non-Reactive — Rapid Immunoconcentration (Demo)</p><button class="btn btn-primary" style="width:100%;margin-top:12px;font-size:11.5px;padding:9px" onclick="bookTest('HIV I & II ₹499')">Book Now — ₹499</button></div>
+<div class="card reveal" data-cat="fullbody" data-name="basic wellness 60 tests"><span class="price" style="background:var(--accent);color:#000">₹799</span><div class="card-icon" style="background:rgba(255,212,59,.12);border-color:rgba(255,212,59,.2);color:var(--accent)"><i class="fa-solid fa-heart-pulse"></i></div><h4>Basic Wellness — 60 Tests</h4><p>CBC, LFT, KFT, Lipid, Sugar, Thyroid, Urine • Bestseller in Madhepura (Demo)</p><button class="btn btn-primary" style="width:100%;margin-top:12px;font-size:11.5px;padding:9px" onclick="bookTest('Basic Wellness ₹799')">Book Now — ₹799</button></div>
+<div class="card reveal" data-cat="fullbody" data-name="advance full body 85 tests"><span class="price" style="background:var(--accent);color:#000">₹1499</span><div class="card-icon" style="background:rgba(255,212,59,.12);border-color:rgba(255,212,59,.2);color:var(--accent)"><i class="fa-solid fa-crown"></i></div><h4>Advance Full Body — 85 Tests</h4><p>+ Vit D, B12, HbA1c, Iron, Calcium • Trending (Demo)</p><button class="btn btn-primary" style="width:100%;margin-top:12px;font-size:11.5px;padding:9px" onclick="bookTest('Advance Full Body ₹1499')">Book Now — ₹1499</button></div>
+<div class="card reveal" data-cat="fullbody" data-name="women wellness"><span class="price">₹1799</span><div class="card-icon" style="background:rgba(255,143,171,.12);border-color:rgba(255,143,171,.2);color:#ff8fab"><i class="fa-solid fa-person-dress"></i></div><h4>Women Wellness — 72 Tests</h4><p>Hormones, CBC, Calcium, Vitamins, Thyroid • Women Care (Demo)</p><button class="btn btn-outline" style="width:100%;margin-top:12px;font-size:11.5px;padding:9px" onclick="bookTest('Women Wellness ₹1799')">Book Now — ₹1799</button></div>
+<div class="card reveal" data-cat="diabetes" data-name="diabetes hba1c sugar"><div class="card-icon"><i class="fa-solid fa-flask"></i></div><h4>Diabetes Care — HbA1c + Sugar</h4><p>Fasting, PP, HbA1c, KFT, Urine • Diabetic Profile • ₹599 (Demo)</p><button class="btn btn-outline" style="width:100%;margin-top:12px;font-size:11.5px;padding:9px" onclick="bookTest('Diabetes Care ₹599')">Book Now</button></div>
+<div class="card reveal" data-cat="blood" data-name="vitamin d b12"><div class="card-icon" style="background:rgba(255,170,0,.12);border-color:rgba(255,170,0,.2);color:#ffaa00"><i class="fa-solid fa-sun"></i></div><h4>Vitamin D + B12 Combo</h4><p>Most demanded deficiency check • 12 Hrs • ₹899 (Demo)</p><button class="btn btn-outline" style="width:100%;margin-top:12px;font-size:11.5px;padding:9px" onclick="bookTest('Vit D B12 ₹899')">Book Now</button></div>
+<div class="card reveal" data-cat="fever" data-name="dengue ns1 igg igm"><div class="card-icon" style="background:rgba(255,107,107,.12);color:#ff6b6b"><i class="fa-solid fa-lungs-virus"></i></div><h4>Dengue NS1 + IgG IgM</h4><p>Fever profile - Rapid • Same day • ₹399 (Demo)</p><button class="btn btn-outline" style="width:100%;margin-top:12px;font-size:11.5px;padding:9px" onclick="bookTest('Dengue ₹399')">Book Now</button></div>
+<div class="card reveal" data-cat="blood" data-name="lft liver function"><div class="card-icon"><i class="fa-solid fa-droplet"></i></div><h4>LFT - Liver Function Test</h4><p>12 Parameters - Liver health • ₹450 (Demo)</p><button class="btn btn-outline" style="width:100%;margin-top:12px;font-size:11.5px;padding:9px" onclick="bookTest('LFT ₹450')">Book Now</button></div>
+<div class="card reveal" data-cat="blood" data-name="kft kidney"><div class="card-icon"><i class="fa-solid fa-kidneys"></i></div><h4>KFT - Kidney Function Test</h4><p>Creatinine, Urea, Uric Acid - 8 Tests • ₹450 (Demo)</p><button class="btn btn-outline" style="width:100%;margin-top:12px;font-size:11.5px;padding:9px" onclick="bookTest('KFT ₹450')">Book Now</button></div>
+<div class="card reveal" data-cat="blood" data-name="lipid cholesterol"><div class="card-icon" style="color:#ff6b6b;background:rgba(255,107,107,.1)"><i class="fa-solid fa-heart"></i></div><h4>Lipid Profile - Cholesterol</h4><p>Total, HDL, LDL, Triglycerides • ₹499 (Demo)</p><button class="btn btn-outline" style="width:100%;margin-top:12px;font-size:11.5px;padding:9px" onclick="bookTest('Lipid ₹499')">Book Now</button></div>
+<div class="card reveal" data-cat="blood" data-name="hbsag hepatitis b"><div class="card-icon"><i class="fa-solid fa-virus"></i></div><h4>HBsAg - Hepatitis B</h4><p>Hepatitis B screening • Rapid • ₹350 (Demo)</p><button class="btn btn-outline" style="width:100%;margin-top:12px;font-size:11.5px;padding:9px" onclick="bookTest('HBsAg ₹350')">Book Now</button></div>
+<div class="card reveal" data-cat="blood" data-name="hcv hepatitis c"><div class="card-icon"><i class="fa-solid fa-virus"></i></div><h4>HCV - Hepatitis C</h4><p>Hepatitis C screening • Rapid • ₹450 (Demo)</p><button class="btn btn-outline" style="width:100%;margin-top:12px;font-size:11.5px;padding:9px" onclick="bookTest('HCV ₹450')">Book Now</button></div>
+<div class="card reveal" data-cat="fever" data-name="widal typhoid"><div class="card-icon" style="background:rgba(255,107,107,.12);color:#ff6b6b"><i class="fa-solid fa-temperature-high"></i></div><h4>Widal - Typhoid Test</h4><p>Typhoid fever test • Same day • ₹250 (Demo)</p><button class="btn btn-outline" style="width:100%;margin-top:12px;font-size:11.5px;padding:9px" onclick="bookTest('Widal ₹250')">Book Now</button></div>
+</div>
+</div>
+</section>
+
+<!-- About -->
+<section id="about">
+<div class="container">
+<div class="section-head"><div class="reveal"><div class="badge">About MHC Lab</div><h2 class="title" style="margin-top:8px">Why Madhepura Trusts <span>MHC Lab</span></h2></div></div>
+<div class="trust-grid">
+<div class="trust-card card reveal"><i class="fa-solid fa-microscope"></i><h4>NABL Inspired Lab</h4><p>Fully automated analyzers, temperature controlled storage, QR verified reports. No fake certifications — real quality processes.</p></div>
+<div class="trust-card card reveal reveal-delay-1"><i class="fa-solid fa-user-doctor"></i><h4>MD Pathologist</h4><p>Dr. Prashant Kumar — MBBS, MD Pathology (PGI Chandigarh). Ex. Senior Resident RML Hospital New Delhi. Reports verified by doctor.</p></div>
+<div class="trust-card card reveal reveal-delay-2"><i class="fa-solid fa-truck-medical"></i><h4>Free Home Collection</h4><p>60 minutes me team aapke ghar — no extra charge above ₹399. Sterile kit, safe handling, WhatsApp report.</p></div>
+</div>
+</div>
+</section>
+
+<!-- Reviews -->
+<section style="background:var(--bg2)">
+<div class="contain
