@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://biharweb-official.github.io/mhc-lab/sitemap.xml
